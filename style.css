@@ -2,13 +2,17 @@
   --base-color: #f0f0f0;
   --main-color: #463fb1;
   --sub-main-color: #7b63f9;
-  --grad-main-color: linear-gradient(-40deg, var(--main-color), var(--sub-main-color));
+  --grad-main-color: linear-gradient(
+    -40deg,
+    var(--main-color),
+    var(--sub-main-color)
+  );
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 
 body {
@@ -17,10 +21,10 @@ body {
 
 .container {
   display: grid;
-  grid-template-areas: 
-    'nav nav nav nav nav'
-    'sidebar main main main main'
-    'footer footer footer footer footer';
+  grid-template-areas:
+    "nav nav nav nav nav"
+    "sidebar main main main main"
+    "footer footer footer footer footer";
   grid-template-columns: 270px;
 }
 
@@ -30,7 +34,7 @@ nav {
   grid-area: nav;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  box-shadow: 0 0px 5px 0 rgba(0,0,0,.4);
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.4);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -77,10 +81,6 @@ nav > ul {
   grid-template-columns: repeat(3, minmax(5px, 1fr));
 }
 
-.navbar-item-wrapper:hover {
-  background-color: rgb(206, 206, 206);
-} 
-
 li {
   list-style: none;
 }
@@ -90,14 +90,13 @@ a {
 }
 
 .navbar-item {
-  display: flex;
+  display: grid;
   place-items: center;
 }
 
 .navbar-item-wrapper {
   display: flex;
   place-items: center;
-  background-color: var(--base-color);
   padding: 10px;
   margin: 0 5px;
   border-radius: 50%;
@@ -125,17 +124,16 @@ aside {
   margin: 0px 20px;
   border-radius: 20px;
   background-image: var(--grad-main-color);
-  box-shadow: 3px 3px 5px #3c3696,
-  -3px -3px 5px #c6c2f5;
+  box-shadow: 3px 3px 5px #3c3696, -3px -3px 5px #c6c2f5;
   padding: 20px;
 }
 
 .user-profile {
   display: grid;
-  grid-template-areas: 
-    'avatar profile-name'
-    'avatar profile-info';
-  background-color: rgba(255,255,255,.15);
+  grid-template-areas:
+    "avatar profile-name"
+    "avatar profile-info";
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 10px;
   color: white;
@@ -161,7 +159,7 @@ main {
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
-  
+
   padding-right: 20px;
 }
 
@@ -173,8 +171,7 @@ main {
   background-color: var(--base-color);
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 6px 6px 12px #cecece, 
-  -6px -6px 12px #ffffff;
+  box-shadow: 6px 6px 12px #cecece, -6px -6px 12px #ffffff;
   transition: opacity 0.3s;
   transition-timing-function: ease-out;
 }
@@ -212,8 +209,8 @@ main {
 
 .arrow-right {
   position: absolute;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 15px solid white;
@@ -248,48 +245,14 @@ main {
 
 footer {
   grid-area: footer;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   position: sticky;
   bottom: 0;
   z-index: 2;
-  box-shadow: 0 0px 5px 0 rgba(0,0,0,.4);
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-}
-
-.now-playing-song-info {
-  margin-left: 20px;
-  display: flex;
-  width: 30%;
-}
-
-.now-playing-image {
-  position: relative;
-  width: 50px;
-  margin-right: 10px;
-}
-
-.now-playing-image > img {
-  border-radius: 10px;
-  position: absolute;
-  bottom: 38px;
-  box-shadow: 1px 1px 5px #cecece;
-}
-
-.song-info-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.song-info-text h5 {
-  margin-top: 5px;
-}
-
-.song-info-text h5,
-.song-info-text p {
-  margin-bottom: 5px;
 }
 
 .now-playing-player {
@@ -316,7 +279,8 @@ footer {
   font-size: x-large;
 } */
 
-.icon-027-previous:before, .icon-032-next:before {
+.icon-027-previous:before,
+.icon-032-next:before {
   font-size: small;
 }
 
@@ -387,18 +351,112 @@ article {
   margin: 15px;
 }
 
+@media only screen and (min-width: 769px) {
+  .navbar-item-wrapper {
+    background-color: var(--base-color);
+  }
+
+  .navbar-item-wrapper:hover {
+    background-color: rgb(206, 206, 206);
+  }
+
+  .now-playing-song-info {
+    margin-left: 20px;
+    display: flex;
+    width: 30%;
+  }
+  
+  .now-playing-image {
+    position: relative;
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .now-playing-image > img {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 38px;
+    box-shadow: 1px 1px 5px #cecece;
+  }
+  
+  .song-info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .song-info-text h5 {
+    margin-top: 5px;
+  }
+  
+  .song-info-text h5,
+  .song-info-text p {
+    margin-bottom: 5px;
+  }
+
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     display: grid;
-    grid-template-areas: 
-      'main main main main main'
-      'footer footer footer footer footer'
-      'nav nav nav nav nav';
-    grid-template-columns: 270px;
+    grid-template-areas:
+      "main main main main main"
+      "footer footer footer footer footer"
+      "nav nav nav nav nav";
+    /* grid-template-columns: 270px; */
   }
 
   nav {
     bottom: 0;
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+  }
+
+  nav > ul {
+    margin-right: 0;
+    justify-content: space-evenly;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .navbar-item-wrapper {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .navbar-item-wrapper.nav-avatar {
+    border-radius: 0;
+  }
+
+  .nav-avatar > img {
+    margin-right: 0;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .navbar-item {
+    width: 100%;
+  }
+
+  .navbar-item:hover {
+    background-color: rgb(206, 206, 206);
+  }
+
+  main {
+    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .now-playing-image {
+    display: none;
   }
 
   aside {
@@ -406,6 +464,23 @@ article {
   }
 
   footer {
-    bottom: 58px;
+    bottom: 40px;
+  }
+
+  .playback-bar {
+    display: none;
+  }
+
+  .now-playing-song-info {
+    margin-left: 20px;
+    align-self: center;
+  }
+
+  .song-info-text {
+    display: flex;
+  }
+
+  .song-info-text > h5 {
+    margin-right: 10px;
   }
 }
